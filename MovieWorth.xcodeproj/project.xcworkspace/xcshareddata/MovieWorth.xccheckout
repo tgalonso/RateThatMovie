@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6196B4B8-E55D-4AD7-81F4-257D6C01064C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MovieWorth</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CF04D957-61A4-4BC9-90F9-2187D5C72881</key>
+		<string>http://Tardis.local/git/MovieWorth.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MovieWorth/MovieWorth.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CF04D957-61A4-4BC9-90F9-2187D5C72881</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://Tardis.local/git/MovieWorth.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CF04D957-61A4-4BC9-90F9-2187D5C72881</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CF04D957-61A4-4BC9-90F9-2187D5C72881</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MovieWorth</string>
+		</dict>
+	</array>
+</dict>
+</plist>
