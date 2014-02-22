@@ -21,6 +21,8 @@ $("input").keyup(function() {
 });
                   
 
+$("#go").click(function() {
+               
    $.getJSON(, function() {
          //do something where JSON is stored in movieJSON obj.
     });
@@ -28,9 +30,10 @@ $("input").keyup(function() {
     movieRating = movieJSON.movies["ratings"["critics_score"]];
                         
     //assigning actor
-    actors[0] = movieJSON.movies["abridged_cast"["name"[0]]];*/
+    actors[0] = movieJSON.movies["abridged_cast"["name"[0]]];
     
 });
+                  
 
 //display stuff on other screen.
 var $title = "<li>"+movieTitle+"1</li>";

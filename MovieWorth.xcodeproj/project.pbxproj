@@ -40,7 +40,6 @@
 		30A0434814DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434314DC770100060A13 /* Localizable.strings */; };
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		549CCDDE18AB30C10027775D /* movieVariables.js in Sources */ = {isa = PBXBuildFile; fileRef = 549CCDDD18AB30C10027775D /* movieVariables.js */; };
 		54DC1C4418B3E51D007EB461 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 54DC1C4318B3E51D007EB461 /* test.html */; };
 		54DC1C4618B3E59E007EB461 /* test.js in Sources */ = {isa = PBXBuildFile; fileRef = 54DC1C4518B3E59E007EB461 /* test.js */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
@@ -104,7 +103,6 @@
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* MovieWorth-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieWorth-Prefix.pch"; sourceTree = "<group>"; };
-		549CCDDD18AB30C10027775D /* movieVariables.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = movieVariables.js; path = www/js/movieVariables.js; sourceTree = "<group>"; };
 		54DC1C4318B3E51D007EB461 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = test.html; path = ../../Documents/test/test.html; sourceTree = "<group>"; };
 		54DC1C4518B3E59E007EB461 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = test.js; path = ../../Documents/test/test.js; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -182,7 +180,6 @@
 			children = (
 				54DC1C4318B3E51D007EB461 /* test.html */,
 				54DC1C4518B3E59E007EB461 /* test.js */,
-				549CCDDD18AB30C10027775D /* movieVariables.js */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -421,7 +418,6 @@
 			files = (
 				54DC1C4618B3E59E007EB461 /* test.js in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				549CCDDE18AB30C10027775D /* movieVariables.js in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 			);
