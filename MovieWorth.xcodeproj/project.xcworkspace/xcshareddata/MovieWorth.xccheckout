@@ -5,36 +5,48 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6196B4B8-E55D-4AD7-81F4-257D6C01064C</string>
+	<string>44648091-7BE4-47C7-9A0B-6CC02BD0E815</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MovieWorth</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CF04D957-61A4-4BC9-90F9-2187D5C72881</key>
-		<string>http://Tardis.local/git/MovieWorth.git</string>
+		<key>47815592-74A6-4C75-B020-C5D47CE151B6</key>
+		<string>ssh://github.com/tgalonso/RateThatMovie.git</string>
+		<key>A862AB88-0F77-496D-8831-BDA2CCB59233</key>
+		<string>ssh://github.com/tgalonso/RateThatMovie.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MovieWorth/MovieWorth.xcodeproj/project.xcworkspace</string>
+	<string>RateThatMovie/MovieWorth.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CF04D957-61A4-4BC9-90F9-2187D5C72881</key>
+		<key>47815592-74A6-4C75-B020-C5D47CE151B6</key>
 		<string>../../..</string>
+		<key>A862AB88-0F77-496D-8831-BDA2CCB59233</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://Tardis.local/git/MovieWorth.git</string>
+	<string>ssh://github.com/tgalonso/RateThatMovie.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CF04D957-61A4-4BC9-90F9-2187D5C72881</string>
+	<string>47815592-74A6-4C75-B020-C5D47CE151B6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CF04D957-61A4-4BC9-90F9-2187D5C72881</string>
+			<string>A862AB88-0F77-496D-8831-BDA2CCB59233</string>
 			<key>IDESourceControlWCCName</key>
-			<string>MovieWorth</string>
+			<string>RateThatMovie</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>47815592-74A6-4C75-B020-C5D47CE151B6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RateThatMovie</string>
 		</dict>
 	</array>
 </dict>
