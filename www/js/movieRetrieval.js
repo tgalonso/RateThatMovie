@@ -16,28 +16,27 @@ var movieJSON;
                   
 //here we get the movie title.
 $("input").keyup(function() {
-                 
     movieTitle = $(this).val(); //getting movie title, one letter at a time.
 });
                   
 
 $("#go").click(function() {
                
-   $.getJSON(, function() {
-         //do something where JSON is stored in movieJSON obj.
+    $.ajax({
+           url:"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q=Pacific%20Rim&page_limit=1&_prettyprint=true",
+           datatype:"jsonp",
+           jsonp:"onJSONPload",
+           success: function(data, text, jqXHR) {
+           var JSONobj=this.data;
+           movieRating = JSONobj.movies[0].ratings.critics_score;
+           alert(movieRating);
+               console.log(movieRating);
+           }
     });
-    //assigning movieRating
-    movieRating = movieJSON.movies["ratings"["critics_score"]];
-                        
-    //assigning actor
-    actors[0] = movieJSON.movies["abridged_cast"["name"[0]]];
+               console.log("Ajax call finished.");
+               console.log(movieRating);
     
 });
-                  
 
-//display stuff on other screen.
-var $title = "<li>"+movieTitle+"1</li>";
-var $rating = "<li>"+movieRating+"2</li>";
-var $actor = "<li>"+actor[0]+"3</li>";
 
 }); //end of jquery doc

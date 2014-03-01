@@ -37,6 +37,7 @@
     <content src="index.html" />
 
     <plugins>
+        <plugin name="Notification" value="CDVNotification" />
         <plugin name="Device" value="CDVDevice" />
         <plugin name="Logger" value="CDVLogger" />
         <plugin name="Compass" value="CDVLocation" />
