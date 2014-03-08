@@ -20,23 +20,5 @@ $("input").keyup(function() {
 });
                   
 
-$("#go").click(function() {
-               
-    $.ajax({
-           url:"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q=Pacific%20Rim&page_limit=1&_prettyprint=true",
-           datatype:"jsonp",
-           jsonp:"onJSONPload",
-           success: function(data, text, jqXHR) {
-           var JSONobj=this.data;
-           movieRating = JSONobj.movies[0].ratings.critics_score;
-           alert(movieRating);
-               console.log(movieRating);
-           }
-    });
-               console.log("Ajax call finished.");
-               console.log(movieRating);
-    
-});
-
 
 }); //end of jquery doc
