@@ -11,7 +11,7 @@ $(document).ready(function() {
 //declaring necessary global variables
 var movieTitle;
 var movieRating;
-var actors = []; //this will be an array
+var actors = [];
 var movieJSON;
                   
     //here we get the movie title.
