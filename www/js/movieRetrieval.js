@@ -9,7 +9,7 @@ var data; //will hold the json obj with the data.
     $('input').keyup(function() {
             movieTitle = $(this).val(); //getting movie title, one letter at a time.
     });
-                  
+    //performs ajax call and displays info on results page.
     $('#go').click(function() {
         movieTitle = encodeURI(movieTitle);
         console.log("Click was registered");
@@ -29,6 +29,7 @@ var data; //will hold the json obj with the data.
         });
         
     });
+    
     function saveObj(JSONObject) {
         data = JSONObject;
     };
