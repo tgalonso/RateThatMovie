@@ -1,8 +1,7 @@
 
 $(document).ready(function() {
 //declaring necessary global variables
-
-$.support.cors = true;
+$.support.cors = true; //setting jquery variable to allow cross-domain calls
 var movieJSON;
 var data; //will hold the json obj with the data.
                   
@@ -19,25 +18,22 @@ var data; //will hold the json obj with the data.
             dataType: 'jsonp',
             async: 'false',
             success: function(JSONObject) {
-               $('#title').append(JSONObject.movies[0].title);
-               console.log("1");
-               $('#rating').append(JSONObject.movies[0].ratings.critics_score);
-               console.log("2");
-               $('#actor1').append(JSONObject.movies[0].abridged_cast[0].name);
-               console.log("3");
-               $('#actor2').append(JSONObject.movies[0].abridged_cast[1].name);
-               console.log("4");
-               $('#actor3').append(JSONObject.movies[0].abridged_cast[2].name);
-               console.log("Done.");
                //saving the JSON from Rotten Tomatoes in data variable
+               for(var i=0; i<4; i++) {
+                    $('#pic'+i).html("<img src=\""+JSONObject.movies[i].posters.profile+"\"/>");
+                    $('#title'+i).html(JSONObject.movies[i].title);
+                    $('#year'+i).html(JSONObject.movies[i].year);
+               }
                saveObj(JSONObject);
             }
         });
+        
     });
-                  
     function saveObj(JSONObject) {
         data = JSONObject;
     };
+        
+    
     //Assuming we'll only be using the one html file, we can use data to populate other stuff/fields in rotten tomatoes.
 
 
