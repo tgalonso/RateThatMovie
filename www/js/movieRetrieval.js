@@ -1,24 +1,15 @@
-/*
-So this is what needs to get accomplished.
-You need to 
-1. retrieve the info from RottenTomatoes URL and store it in a
-object. var movie, maybe.
-2. parse the info to retrieve certain info.
- JSON retrieves 1 object, with 3 name:value pairs.
 
-*/
 $(document).ready(function() {
 //declaring necessary global variables
-var movieTitle;
-var movieRating;
-var actors = [];
+$.support.cors = true; //setting jquery variable to allow cross-domain calls
 var movieJSON;
+var data; //will hold the json obj with the data.
                   
     //here we get the movie title.
     $('input').keyup(function() {
             movieTitle = $(this).val(); //getting movie title, one letter at a time.
     });
-                  
+    //performs ajax call and displays info on results page.
     $('#go').click(function() {
         movieTitle = encodeURI(movieTitle);
         console.log("Click was registered");
@@ -27,24 +18,23 @@ var movieJSON;
             dataType: 'jsonp',
             async: 'false',
             success: function(JSONObject) {
-               //$('#title').append(JSONObject.movies[0].title);
-               console.log("1");
-               //$('#rating').append(JSONObject.movies[0].ratings.critics_score);
-               console.log("2");
-               //$('#actor1').append(JSONObject.movies[0].abridged_cast[0].name);
-               console.log("3");
-               //$('#actor2').append(JSONObject.movies[0].abridged_cast[1].name);
-               console.log("4");
-               console.log("Done.");
                //saving the JSON from Rotten Tomatoes in data variable
+               for(var i=0; i<4; i++) {
+                    $('#pic'+i).html("<img src=\""+JSONObject.movies[i].posters.profile+"\"/>");
+                    $('#title'+i).html(JSONObject.movies[i].title);
+                    $('#year'+i).html(JSONObject.movies[i].year);
+               }
                saveObj(JSONObject);
             }
         });
+        
     });
-                  
+    
     function saveObj(JSONObject) {
         data = JSONObject;
     };
+        
+    
     //Assuming we'll only be using the one html file, we can use data to populate other stuff/fields in rotten tomatoes.
 
 
