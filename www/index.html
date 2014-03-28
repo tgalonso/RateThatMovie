@@ -44,6 +44,7 @@
             <script type="text/javascript" src="js/movieRetrieval.js"></script>
             <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
             
+            
      </head>
         
  <body>
@@ -102,7 +103,7 @@
                         data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
-                        <h1>results</h1>
+                        <h1>Results </h1>
                         <a href="#home"
                             id ="home-search"
                             data-icon="home"
@@ -110,54 +111,13 @@
                             data-transition="slide"
                             data-direction="reverse"
                             >Home</a>
-                    </div> <!--end of header-->
-                    <style>
-                        
-                    #list-container h3, p {
-                            text-align: right;
-                    }
-                    #results #list-container img {
-                        height:90px;
-                        
-                    }
-                    li {
-                        background-color:#ffffff;
-                    }
-                    
-                    </style>
-                    <div id="list-container" >
-                          
-                    <ul data-role="listview" data-inset="true" id="my-listview">
-                        <a href="#important"><li id="movie1">
-                            <div id="pic0"></div>
-                            <h3 id="title0"></h3>
-                            <p id="year0"></p>
-                        </li></a>
-                        
-                        <a href="#important">
-                            <li id="movie2">
-                            <div id="pic1"></div>
-                            <h3 id="title1"></h3>
-                            <p id="year1"></p>
-                        </li></a>
-                        
-                        <a href="#important">
-                            <li id="movie3">
-                            <div id="pic2"></div>
-                            <h3 id="title2"></h3>
-                            <p id="year2"></p>
-                        </li></a>
-                        
-                        <a href="#important">
-                            <li id="movie4">
-                            <div id="pic3"></div>
-                            <h3 id="title3"></h3>
-                            <p id="year3"></p>
-                            </li>
-                        </a>
-                    </ul>
-                    </div>
-                </div><!-- results end -->
+                        </div>
+                    <div data-theme="a"
+                        data-role="content"
+                        id="postlist">
+                    </div><!-- content -->
+                </div> <!--end of header-->
+                
                 
                 <!-- Page: important list -->
                      <div id="important" data-role="page3" data-theme="a" data-title="What is important">
