@@ -36,13 +36,12 @@ var data; //will hold the json obj with the data.
     $("input[type=radio]").click(function() {
             name = $(this);
             col = name.data("col");
-            //Necessary line. Quirk in JQueryMobile requires this line whenever radiobutton stuff is done with JS
-            $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
-                                               
+            
             $("input[data-col=" + col + "]").prop("checked", false);
             name.prop("checked", true);
-                                 //Necessary line. Quirk in JQueryMobile requires this line whenever radiobutton stuff is done with JS
-                            
+            //Necessary line. Quirk in JQueryMobile requires this line whenever radiobutton stuff is done with JS                                 
+            $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+                                 
     });
 
                   
