@@ -32,7 +32,7 @@ var data; //will hold the json obj with the data.
                    //output += JSONObject.movies[i].year;
                    //output += '</li>';
                }
-              // </ul>
+   
                saveObj(JSONObject);
                //output+='</ul>';
                //$('#postlist').html(output);
