@@ -91,6 +91,15 @@ body {
         padding:10px
 }
 
+ul
+{
+    list-style-type: none;
+}
+#moviepic {
+	width: 50px;
+    height: 60px;
+
+}
 
 /* Portrait layout (default) */
 .app {
