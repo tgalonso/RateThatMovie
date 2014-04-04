@@ -37,9 +37,11 @@
             <link rel="stylesheet" href="css/moviewatch.css" />
             
             <script type="text/javascript" src="cordova-2.5.0.js"></script>
+            
             <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
             <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
-            <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
+            <script src="jquery.ui.touch-punch.min.js"></script>
+            
             <script type="text/javascript" src="js/movieRetrieval.js"></script>
             
             
@@ -107,49 +109,53 @@
                             >Home</a>
                     </div> <!--end of header-->
                     <style>
-                        
-                    #list-container h3, p {
-                            text-align: right;
-                    }
-                    #results #list-container img {
-                        height:90px;
-                        
-                    }
-                    li {
-                        background-color:#ffffff;
+                    
+                    #results #list-container {
+                        padding-top:5px;
+                        padding-left:5px;
+                        padding-right:5px;
+                        padding-bottom:5px;
                     }
                     
                     </style>
-                    <div id="list-container" data-role="fieldcontain">
-                          
+                    <div id="list-container" data-role="contain">
+                    
                     <ul data-role="listview" data-inset="true" id="my-listview">
-                        <a href="#important"><li id="movie1">
-                            <div id="pic0"></div>
+                        <li id="movie1">
+                            <a href="#important" data-transition="slide">
+                            <img id="pic0"></img>
                             <h3 id="title0"></h3>
                             <p id="year0"></p>
-                        </li></a>
+                            </a>
+                        </li>
                         
-                        <a href="#important">
-                            <li id="movie2">
-                            <div id="pic1"></div>
+                        
+                        <li id="movie2">
+                            <a href="#important" data-transition="slide">
+                            <img id="pic1"></img>
                             <h3 id="title1"></h3>
                             <p id="year1"></p>
-                        </li></a>
+                            </a>
+                        </li>
                         
-                        <a href="#important">
-                            <li id="movie3">
-                            <div id="pic2"></div>
+                        
+                        <li id="movie3">
+                            <a href="#important" data-transition="slide">
+                            <img id="pic2"></img>
                             <h3 id="title2"></h3>
                             <p id="year2"></p>
-                        </li></a>
+                            </a>
+                        </li>
                         
-                        <a href="#important">
-                            <li id="movie4">
-                            <div id="pic3"></div>
+                        
+                        <li id="movie4">
+                            <a href="#important" data-transition="slide">
+                            <img id="pic3"></img>
                             <h3 id="title3"></h3>
                             <p id="year3"></p>
-                            </li>
-                        </a>
+                            </a>
+                        </li>
+                        
                     </ul>
                     </div>
                 </div><!-- results end -->
@@ -174,9 +180,9 @@
                             rate what is most important in a </p1><br><p1>movie for you
                         </p1>
                     </div>
-                            <div> <!-- begin of choice fields -->
+                           <!-- <div> <!-- begin of choice fields -->
                                 
-                                   <div data-role="fieldcontain">
+                    <!--               <div data-role="fieldcontain">
                                         <fieldset data-role="controlgroup" data-type="horizontal">
                                             <legend>actor</legend><br>
                                             <input type="radio" name="radio-choice-1" id="radio-choice-21" value="choice-1"  />
@@ -205,7 +211,7 @@
                                             <label for="radio-choice-26">3</label>
                                             
                                         </fieldset>
-                                    <!-- </div> -->
+                                    </div>
                                 
                                 
                                     <div data-role="fieldcontain">
@@ -224,7 +230,26 @@
                                     </div>
                                 
                         </div> <!-- end of choice fields -->
-                           
+                    <style>
+                        #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+                        #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+                    </style>
+       <script>
+           $(function() {
+             $( "#sortable" ).sortable();
+             $( "#sortable" ).disableSelection();
+             });
+           </script>
+                        <ul id="sortable" data-role="listview" data-inset="true">
+                            <li >Item 1</li>
+                            <li >Item 2</li>
+                            <li >Item 3</li>
+                            <li >Item 4</li>
+                            <li >Item 5</li>
+                            <li >Item 6</li>
+                            <li >Item 7</li>
+                        </ul>
+                    
                     </div> <!-- end of important page -->
                     
                     
