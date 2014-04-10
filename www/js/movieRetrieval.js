@@ -6,32 +6,31 @@ var movieJSON;
 var data; //will hold the json obj with the data.
                   
     //here we get the movie title.
-    $('input').keyup(function() {
-            movieTitle = $(this).val(); //getting movie title, one letter at a time.
+    $('#search-mini').keyup(function(event) {
+        movieTitle = $(this).val(); //getting movie title, one letter at a time.
     });
     //performs ajax call and displays info on results page.
     $('#go').click(function() {
-        movieTitle = encodeURI(movieTitle);
-        console.log("Click was registered");
-        $.ajax({
-            url:'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q='+movieTitle+'&page_limit=4',
-            dataType: 'jsonp',
-            async: 'false',
-            success: function(JSONObject) {
-               //saving the JSON from Rotten Tomatoes in data variable
-               for(var i=0; i<4; i++) {
-                    $('#pic'+i).attr("src", JSONObject.movies[i].posters.profile);
-                    $('#title'+i).html(JSONObject.movies[i].title);
-                    $('#year'+i).html(JSONObject.movies[i].year);
-               }
-   
-               saveObj(JSONObject);
-               
-            }
-        });
         
+            movieTitle = encodeURI(movieTitle);
+            console.log("Click was registered");
+            $.ajax({
+                   url:'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q='+movieTitle+'&page_limit=4',
+                   dataType: 'jsonp',
+                   async: 'false',
+                   success: function(JSONObject) {
+                   //saving the JSON from Rotten Tomatoes in data variable
+                   for(var i=0; i<4; i++) {
+                        $('#pic'+i).attr("src", JSONObject.movies[i].posters.profile);
+                        $('#title'+i).html(JSONObject.movies[i].title);
+                        $('#year'+i).html(JSONObject.movies[i].year);
+                   }
+                   saveObj(JSONObject);
+                   }
+            });
     });
-                
+    
+    
     //represent column and name
     var col, button;
     //this does the mutual excusivity for buttons
