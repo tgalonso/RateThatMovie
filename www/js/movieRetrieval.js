@@ -3,15 +3,23 @@ $(document).ready(function() {
 //declaring necessary global variables
 $.support.cors = true; //setting jquery variable to allow cross-domain calls
 var movieJSON;
+var movieTitle; //just added this shit
 var data; //will hold the json obj with the data.
                   
     //here we get the movie title.
     $('#search-mini').keyup(function(event) {
         movieTitle = $(this).val(); //getting movie title, one letter at a time.
     });
+    
     //performs ajax call and displays info on results page.
     $('#go').click(function() {
         
+            if($('#search-mini').val() == "") {
+                   $(this).attr("href", "#wrong-way");
+            }
+            else {
+                   $(this).attr("href", "#results");
+            }
             movieTitle = encodeURI(movieTitle);
             console.log("Click was registered");
             $.ajax({
@@ -20,7 +28,7 @@ var data; //will hold the json obj with the data.
                    async: 'false',
                    success: function(JSONObject) {
                    //saving the JSON from Rotten Tomatoes in data variable
-                   for(var i=0; i<4; i++) {
+                   for(var i=0; i<5; i++) {
                         $('#pic'+i).attr("src", JSONObject.movies[i].posters.profile);
                         $('#title'+i).html(JSONObject.movies[i].title);
                         $('#year'+i).html(JSONObject.movies[i].year);
