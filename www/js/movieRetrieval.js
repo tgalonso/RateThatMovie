@@ -5,6 +5,7 @@ $.support.cors = true; //setting jquery variable to allow cross-domain calls
 var movieJSON;
 var movieTitle; //just added this shit
 var data; //will hold the json obj with the data.
+                  //ADD A CONSTANT FOR MOVIE SIZE
                   
     //here we get the movie title.
     $('#search-mini').keyup(function(event) {
@@ -23,7 +24,7 @@ var data; //will hold the json obj with the data.
             movieTitle = encodeURI(movieTitle);
             console.log("Click was registered");
             $.ajax({
-                   url:'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q='+movieTitle+'&page_limit=4',
+                   url:'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q='+movieTitle+'&page_limit=5',
                    dataType: 'jsonp',
                    async: 'false',
                    success: function(JSONObject) {
