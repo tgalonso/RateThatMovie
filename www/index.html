@@ -94,6 +94,16 @@
                          <br><br><br><br><p1>rate that movie combines critical <br><p1>scores with your own personal </p1><br><p1> preferences to help you </p1><br><p1>determine if you</p1> <br><p1>would enjoy a movie.</p1> <br><br><p1>To start, just enter the movie you </p1><br><p1>are considering</p1><br><p1> watching in the search bar. </p1>
 
                     </div>
+                     <style>
+                         
+                         #help #list-container {
+                             padding-top:5px;
+                             padding-left:5px;
+                             padding-right:5px;
+                             padding-bottom:5px;
+                         }
+                     
+                         </style>
                 </div> <!-- help end -->
                 
                 <!-- Page: results -->
@@ -110,6 +120,7 @@
                             data-transition="slide"
                             data-direction="reverse"
                             >Home</a>
+                        
                     </div> <!--end of header-->
                     <style>
                     
@@ -183,10 +194,21 @@
                             data-transition="slide"
                             data-direction="reverse"
                             >Home</a>
-                        <p1> you seemed to have not entered a movie, how about you try again? </p1>
+                       
                     </div>
+                    <br><br> <p1> Please enter a movie. </p1> <p1>Entering nothing is not a movie  </p1>
                 </div>
+                <style>
+                    
+                    #wrong way #text{
+                        padding-top:5px;
+                        padding-left:5px;
+                        padding-right:5px;
+                        padding-bottom:5px;
+                        font-size-adjust: 18px
+                    }
                 
+                    </style>
                 <!-- Page: important list -->
                 <div id="important" data-role="page4" data-theme="a" data-title="What is important">
                     <div data-role="header"
@@ -200,16 +222,32 @@
                                  data-transition="slide"
                                  data-direction="reverse"
                                  >Home</a>
+                             <a href="#actor"
+                                 data-icon="right-arrow"
+                                 data-iconpos="notext"
+                                 data-transition="slide"
+                                 data-direction="forward"
+                                 >next</a>
                     </div>
                     <div>
                         <p1>
                             rank what is most important in a </p1><br><p1>movie for you
                         </p1>
                     </div>
+                    <style>
+                        
+                        #important #list-container {
+                            padding-top:5px;
+                            padding-left:5px;
+                            padding-right:5px;
+                            padding-bottom:5px;
+                        }
+                    
+                        </style>
                             <!-- begin of choice fields -->
                     <div data-role="contain" >
                             <fieldset data-role="controlgroup" data-type="horizontal">
-                                <p>Actor</p>
+                                <p>Actors</p>
                                 <input type="radio" name="radio-group" id="radio-choice-1" data-col="1" value="1" />
                                 <label for="radio-choice-1">1</label>
                                 
@@ -245,7 +283,21 @@
                     </div><!-- end of choice fields -->
                    
                 </div> <!-- end of important page -->
-                    
+                <!-- actor rating page-->
+                <div id="actor" data-theme="a" data-role="page5" data-title="View Source: results">
+                    <div data-role="header"
+                        data-theme="a"
+                        data-position="fixed"
+                        data-id="vs_header">
+                        <h1>Actor</h1>
+                        <a href="#home"
+                            id ="home-search"
+                            data-icon="home"
+                            data-iconpos="notext"
+                            data-transition="slide"
+                            data-direction="reverse"
+                            >Home</a>
+                    </div> <!--end of header-->
                     
 	</body>
 </html>
