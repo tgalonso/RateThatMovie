@@ -117,7 +117,6 @@
                         padding-top:5px;
                         padding-left:5px;
                         padding-right:5px;
-                        padding-bottom:5px;
                     }
                     
                     </style>
@@ -187,6 +186,7 @@
                     </div>
                 </div>
                 
+                
                 <!-- Page: important list -->
                 <div id="important" data-role="page4" data-theme="a" data-title="What is important">
                     <div data-role="header"
@@ -206,8 +206,14 @@
                             rank what is most important in a </p1><br><p1>movie for you
                         </p1>
                     </div>
+                    <style>
+                        #important #important-stuff {
+                            padding-left: 40px; //completely optional formatting
+                            padding-top: 7px;
+                        }
+                    </style>
                             <!-- begin of choice fields -->
-                    <div data-role="contain" >
+                            <div data-role="contain" id="important-stuff">
                             <fieldset data-role="controlgroup" data-type="horizontal">
                                 <p>Actor</p>
                                 <input type="radio" name="radio-group" id="radio-choice-1" data-col="1" value="1" />
