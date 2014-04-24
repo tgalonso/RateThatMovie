@@ -29,7 +29,7 @@ var data; //will hold the json obj with the data.
                    async: 'false',
                    success: function(JSONObject) {
                    //saving the JSON from Rotten Tomatoes in data variable
-                   for(var i=0; i<5; i++) {
+                   for(var i=0; i<6; i++) {
                         $('#pic'+i).attr("src", JSONObject.movies[i].posters.profile);
                         $('#title'+i).html(JSONObject.movies[i].title);
                         $('#year'+i).html(JSONObject.movies[i].year);
