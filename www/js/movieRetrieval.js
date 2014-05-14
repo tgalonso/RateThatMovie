@@ -6,7 +6,7 @@ var movieJSON;
 var movieTitle; //just added this shit
 var data; //will hold the json obj with the data.
                   //ADD A CONSTANT FOR MOVIE SIZE
-                  
+var choice=0;
     //here we get the movie title.
     $('#search-mini').keyup(function(event) {
         movieTitle = $(this).val(); //getting movie title, one letter at a time.
@@ -39,6 +39,9 @@ var data; //will hold the json obj with the data.
             });
     });
     
+    $('#hacktor').click(function() {
+            $('sliderLabel1').html(data.movies[choice].abridged_cast[0].name);
+    });
     
     //represent column and name
     var col, button;
