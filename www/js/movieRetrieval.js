@@ -6,7 +6,7 @@ var movieJSON;
 var movieTitle; //just added this shit
 var data; //will hold the json obj with the data.
 var checkPoint = 0;
-var actors = [[],[],[],[],[]]; //array holds 5 arrays.
+var actors = [[],[],[],[],[]]; //2D array holds 5 arrays.
 var choice=0;
                   
     //here we get the movie title.
@@ -43,6 +43,8 @@ var choice=0;
                    }
             });
     });
+    //I would really like to make these click handlers more condensed. Right now,
+    //this is the best I got.
     $('#movie0Link').click(function() {
             choice = 0;
     });
@@ -59,9 +61,10 @@ var choice=0;
             choice = 4;
     });
     $('#hacktor').click(function() {
-            //print choice's movie's first actor.
-            $('#label1').html(actors[choice][0]);
-
+        //print actors' names.
+        for(var k=0; k<4;k++) {
+            $('#label'+k).html(actors[choice][k]);
+        }
     });
     //represent column and name
     var col, button;
