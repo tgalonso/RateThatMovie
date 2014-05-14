@@ -133,7 +133,7 @@
                     <ul data-role="listview" data-inset="true" id="my-listview">
                         
                         <li id="movie0">
-                            <a href="#important" data-transition="slide">
+                            <a href="#important" id="movie0Link" data-transition="slide">
                             <img id="pic0"></img>
                             <h3 id="title0"></h3>
                             <p id="year0"></p>
@@ -141,7 +141,7 @@
                         </li>
                         
                         <li id="movie1">
-                            <a href="#important" data-transition="slide">
+                            <a href="#important" id="movie1Link" data-transition="slide">
                             <img id="pic1"></img>
                             <h3 id="title1"></h3>
                             <p id="year1"></p>
@@ -150,7 +150,7 @@
                         
                         
                         <li id="movie2">
-                            <a href="#important" data-transition="slide">
+                            <a href="#important" id="movie2Link" data-transition="slide">
                             <img id="pic2"></img>
                             <h3 id="title2"></h3>
                             <p id="year2"></p>
@@ -159,7 +159,7 @@
                         
                         
                         <li id="movie3">
-                            <a href="#important" data-transition="slide">
+                            <a href="#important" id="movie3Link" data-transition="slide">
                             <img id="pic3"></img>
                             <h3 id="title3"></h3>
                             <p id="year3"></p>
@@ -167,7 +167,7 @@
                         </li>
                         
                         <li id="movie4">
-                            <a href="#important" data-transition="slide">
+                            <a href="#important" id="movie4Link" data-transition="slide">
                                 <img id="pic4"></img>
                                 <h3 id="title4"></h3>
                                 <p id="year4"></p>
@@ -296,8 +296,8 @@
                             >Home</a>
                     </div> <!--end of header-->
                     <div data-role="fieldcontain">
-                        <label id="sliderLabel1" for="slider-fill"></label>
-                    <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" data-highlight="true" />
+                        <label for="slider-mini" id="label1" ></label>
+                        <input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true">
                     </div>
                 </div> <!--end of actor page -->
 	</body>

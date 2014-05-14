@@ -5,8 +5,10 @@ $.support.cors = true; //setting jquery variable to allow cross-domain calls
 var movieJSON;
 var movieTitle; //just added this shit
 var data; //will hold the json obj with the data.
-                  //ADD A CONSTANT FOR MOVIE SIZE
+var checkPoint = 0;
+var actors = [[],[],[],[],[]]; //array holds 5 arrays.
 var choice=0;
+                  
     //here we get the movie title.
     $('#search-mini').keyup(function(event) {
         movieTitle = $(this).val(); //getting movie title, one letter at a time.
@@ -28,21 +30,39 @@ var choice=0;
                    dataType: 'jsonp',
                    async: 'false',
                    success: function(JSONObject) {
-                   //saving the JSON from Rotten Tomatoes in data variable
-                   for(var i=0; i<6; i++) {
+                   //populating results list & storing actors in a 2D array.
+                   for(var i=0; i<5; i++) {
                         $('#pic'+i).attr("src", JSONObject.movies[i].posters.profile);
                         $('#title'+i).html(JSONObject.movies[i].title);
                         $('#year'+i).html(JSONObject.movies[i].year);
+                        for(var j=0; j<4; j++) {
+                            //populate actors array[0-5] with movie[0-5].abridged_cast[0-4] names
+                            actors[i][j] = JSONObject.movies[i].abridged_cast[j].name;
+                        }
                    }
-                   saveObj(JSONObject);
                    }
             });
     });
-    
-    $('#hacktor').click(function() {
-            $('sliderLabel1').html(data.movies[choice].abridged_cast[0].name);
+    $('#movie0Link').click(function() {
+            choice = 0;
     });
-    
+    $('#movie1Link').click(function() {
+            choice = 1;
+    });
+    $('#movie2Link').click(function() {
+            choice = 2;
+    });
+    $('#movie3Link').click(function() {
+            choice = 3;
+    });
+    $('#movie4Link').click(function() {
+            choice = 4;
+    });
+    $('#hacktor').click(function() {
+            //print choice's movie's first actor.
+            $('#label1').html(actors[choice][0]);
+
+    });
     //represent column and name
     var col, button;
     //this does the mutual excusivity for buttons
@@ -56,12 +76,5 @@ var choice=0;
         $("input[type='radio']").checkboxradio("refresh");
                                  
     });
-
-     //This function just saves the data in a variable so we can use it later.
-    function saveObj(JSONObject) {
-        data = JSONObject;
-    };
-
-
 
 }); //end of jquery doc
