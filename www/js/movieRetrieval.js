@@ -7,13 +7,21 @@ var movieTitle; //just added this shit
 var data; //will hold the json obj with the data.
 var checkPoint = 0;
 var actors = [[],[],[],[],[]]; //2D array holds 5 arrays.
-var choice=0;
-                  
+var choice;
+var title = []; //array will hold all the titles of the movie.
     //here we get the movie title.
     $('#search-mini').keyup(function(event) {
         movieTitle = $(this).val(); //getting movie title, one letter at a time.
     });
-    
+    //clearing the results page.
+    $('#home-search').click(function() {
+        for(var i=0; i<5; i++) {
+            $('#pic'+i).attr("src", "");
+            $('#title'+i).html("");
+            $('#year'+i).html("");
+            actors = [[],[],[],[],[]]; //clearing out results for actors
+        }
+    });
     //performs ajax call and displays info on results page.
     $('#go').click(function() {
         
@@ -25,6 +33,7 @@ var choice=0;
             }
             movieTitle = encodeURI(movieTitle);
             console.log("Click was registered");
+                   //figure out a way to check the size of the movies array an populate list accordingly.
             $.ajax({
                    url:'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q='+movieTitle+'&page_limit=5',
                    dataType: 'jsonp',
@@ -32,6 +41,7 @@ var choice=0;
                    success: function(JSONObject) {
                    //populating results list & storing actors in a 2D array.
                    for(var i=0; i<5; i++) {
+                        title[i] = JSONObject.movies[i].title;
                         $('#pic'+i).attr("src", JSONObject.movies[i].posters.profile);
                         $('#title'+i).html(JSONObject.movies[i].title);
                         $('#year'+i).html(JSONObject.movies[i].year);
@@ -60,12 +70,17 @@ var choice=0;
     $('#movie4Link').click(function() {
             choice = 4;
     });
+    /**
+     So this function below is gonna be an important one. I need it to perform
+     another ajax call to get the director and genres.
+     */
     $('#hacktor').click(function() {
         //print actors' names.
         for(var k=0; k<4;k++) {
             $('#label'+k).html(actors[choice][k]);
         }
     });
+                  
     //represent column and name
     var col, button;
     //this does the mutual excusivity for buttons
