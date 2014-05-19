@@ -187,3 +187,8 @@ p1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+#label0 {
+    text-align:left;
+    padding-left: 20px;
+}
+
