@@ -31,7 +31,7 @@
             
             <link rel="apple-touch-icon" href="images/appicon.png" type="" />
             <link rel="apple-touch-startup-image" href="images/splash.png" />
-            <link rel="stylesheet" href="_/css/yellow.css" /> 
+            <link rel="stylesheet" href="_/css/yellow.css" />
             <link rel="stylesheet" href="css/structure.css" />
             <link rel="stylesheet" href="css/index.css" />
             <link rel="stylesheet" href="css/moviewatch.css" />
@@ -40,7 +40,6 @@
             <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
             <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
             <script type="text/javascript" src="js/movieRetrieval.js"></script>
-            
             
      </head>
         
@@ -298,7 +297,8 @@
                             data-direction="reverse"
                             
                             >Home</a>
-                        <a href="#actor1"
+                        <a href="#genre-director"
+                            id="to_Genre_director"
                             data-icon="right-arrow"
                             data-iconpos="notext"
                             data-transition="slide"
@@ -309,26 +309,69 @@
                     <br/>
                     <div data-role="fieldcontain">
                         <!--<label for="slider-mini" id="label0" ></label>-->
-                        <p id="label0"></p>
-                        <input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true">
+                    <p id="label0"></p>
+                        <input type="range" name="slider-mini" id="slider-mini1" value="0" min="-10" max="10" data-highlight="true" data-mini="true">
                             
                             </div>
                         <div data-role="fieldcontain">
                        <!-- <label for="slider-mini" id="label1" ></label> -->
                       <p id="label1"></p>
-                        <input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight"true" data-mini="true">
+                        <input type="range" name="slider-mini" id="slider-mini2" value="0" min="-10" max="10" data-highlight"true" data-mini="true">
                     </div>
                     <div data-role="fieldcontain">
                         <!-- <label for="slider-mini" id="label2" ></label> -->
                         <p id="label2"></p>
-                        <input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true">
+                        <input type="range" name="slider-mini" id="slider-mini3" value="0" min="-10" max="10" data-highlight="true" data-mini="true">
                     </div>
                     <div data-role="fieldcontain">
                         <!--<label for="slider-mini" id="label3"></label> -->
                         <p id="label3"></p>
-                        <input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true">
+                        <input type="range" name="slider-mini" id="slider-mini4" value="0" min="-10" max="10" data-highlight="true" data-mini="true">
+                    </div>
+                    <script>
+                        
+                        </script>
+                </div> <!--end of actor page -->
+                <div id="genre-director" data-theme="a" data-role="page5" data-title="View Source: results">
+                    <div data-role="header"
+                        data-theme="a"
+                        data-position="fixed"
+                        data-id="vs_header">
+                        <h1>actor rating page</h1>
+                        <a href="#home"
+                            id ="screen_one"
+                            data-icon="home"
+                            data-iconpos="notext"
+                            data-transition="slide"
+                            data-direction="reverse"
+                            
+                            >Home</a>
+                        <a href="#actor1"
+                            data-icon="right-arrow"
+                            data-iconpos="notext"
+                            data-transition="slide"
+                            data-direction="forward"
+                            >next</a>
+                    </div> <!--end of header-->
+                    <h1>Rate This Actor!</h1>
+                    <br/>
+                    <p> Do you watch these type of movies? Rate them!</p>
+                    <div data-role="fieldcontain">
+                        <!--<label for="slider-mini" id="label0" ></label>-->
+                        <p id="genre0"></p>
+                        <input type="range" name="slider-mini" id="slider-mini1" value="0" min="-10" max="10" data-highlight="true" data-mini="true">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <!-- <label for="slider-mini" id="label1" ></label> -->
+                        <p id="genre1"></p>
+                        <input type="range" name="slider-mini" id="slider-mini2" value="0" min="-10" max="10" data-highlight"true" data-mini="true">
+                    </div>
+                    <p> Rate this director! </p>
+                    <div data-role="fieldcontain">
+                        <!-- <label for="slider-mini" id="label2" ></label> -->
+                        <p id="director"></p>
+                        <input type="range" name="slider-mini" id="slider-mini3" value="0" min="-10" max="10" data-highlight="true" data-mini="true">
                     </div>
                 </div> <!--end of actor page -->
-                
 	</body>
 </html>
