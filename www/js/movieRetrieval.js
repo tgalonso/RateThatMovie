@@ -4,14 +4,14 @@ $(document).ready(function() {
 $.support.cors = true; //setting jquery variable to allow cross-domain calls
 var director;
 var movieTitle; //just added this shit
-var data; //will hold the json obj with the data.
 var checkPoint = 0;
 var actors = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]; //2D array holds 5 w/ 4 actors
 var genre = [];
 var movie_ids = [];
 var choice = 0;
-var title = []; //array will hold all the titles of the movie.
-                  
+var title = [];
+var totalMovies;
+var radio_group1, radio_group2, radio_group3;
                   
     //here we get the movie title.
     $('#search-mini').keyup(function(event) {
@@ -35,13 +35,10 @@ var title = []; //array will hold all the titles of the movie.
                   choice = 0;
                   
             }
-                   console.log("successfully cleared!");
     }
     //performs ajax call and displays info on results page.
     $('#go').click(function() {
-                   console.log("Here.");
             clearVars();
-                   console.log("not here");
             if($('#search-mini').val() == "") {
                    $(this).attr("href", "#wrong-way");
             }
@@ -49,22 +46,23 @@ var title = []; //array will hold all the titles of the movie.
                    $(this).attr("href", "#results");
             }
             movieTitle = encodeURI(movieTitle);
-            console.log("Click was registered");
-                   //figure out a way to check the size of the movies array an populate list accordingly.
+            //console.log("Click was registered");
+            //figure out a way to check the size of the movies array an populate list accordingly.
             $.ajax({
                    url:'http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=cq8unxj24dtamwv2fwjwqdmq&q='+movieTitle+'&page_limit=5',
                    dataType: 'jsonp',
                    async: 'false',
                    success: function(JSONObject) {
                    //populating results list & storing actors in a 2D array.
-                   if(JSONObject.total >= 18) {
-                        inc = 5;
+                   console.log("total number of movies is " +JSONObject.total);
+                   if(JSONObject.total > 5) {
+                        totalMovies = 5;
                    }
                    else {
-                        inc = parseInt(JSONObject.total, 10);
-                        console.log(inc);
+                        totalMovies = parseInt(JSONObject.total);
+                        console.log(totalMovies);
                    }
-                   for(var i=0; i<inc; i++) {
+                   for(var i=0; i < totalMovies; i++) {
                         movie_ids[i]=JSONObject.movies[i].id;
                         console.log(movie_ids[i]);
                         title[i] = JSONObject.movies[i].title;
@@ -77,11 +75,20 @@ var title = []; //array will hold all the titles of the movie.
                         }
                    }
                    
-                   }
+                }
             });
+            //at this point, disable the links for empty results
+            //if there are 5 movies, & 5 movies come back then this iterates 0 times.
+            for(var k = 5; k > totalMovies; k--) {
+                   var $link = $('#movie'+(k - 1)+'Link');
+                   $link.bind('click', function(e) {
+                              e.preventDefault();
+                    });
+                   console.log($link+" was disabled");
+            }
+                   console.log("done!?!?!?!?!");
+                
     });
-
-                  
     //I would really like to make these click handlers more condensed. Right now,
     //this is the best I have.
     $('#movie0Link').click(function() {
@@ -129,7 +136,7 @@ var title = []; //array will hold all the titles of the movie.
                genre[0] = JSONObject2.genres[0];
                console.log("Do you watch "+ genre[0]);
                genre[1] = JSONObject2.genres[1];
-               console.log("Do you watch" + genre[1]);
+               console.log("Do you watch "+ genre[1]);
                director = JSONObject2.abridged_directors[0].name;
             }
         });
@@ -139,10 +146,12 @@ var title = []; //array will hold all the titles of the movie.
         }
         
     });
+                  
     $('#to_genre_director').click(function() {
             $('#genre0').html(genre[0]);
             $('#genre1').html(genre[1]);
             $('#director').html(director);
+            $("input[type='range']").slider("refresh");
     });
     //represent column and name
     var col, button;
@@ -155,7 +164,29 @@ var title = []; //array will hold all the titles of the movie.
         button.prop("checked", true);
         //jQuery Mobile radiobuttons need this line to reflect changes done after clicks.
         $("input[type='radio']").checkboxradio("refresh");
+        setRatings();
                                  
     });
 
+    function setRatings() {
+                  //here, you keep track of the values that are inputted.
+                  //if the director, actors, and genres are all picked allow movement to ratings
+                  radio_group1 = $("input[name=radio-group]:checked").val();
+                  radio_group2 = $("input[name=radio-group2]:checked").val();
+                  radio_group3 = $("input[name=radio-group3]:checked").val()
+                  if(radio_group1 != null) {
+                  
+                  console.log("Actors are rated "+radio_group1);
+                  }
+                  if(radio_group2 != null) {
+                  
+                  console.log("Director is rated "+radio_group2);
+                  }
+                  if(radio_group3 != null) {
+                  
+                  console.log("Genres are rated "+radio_group3);
+                  }
+                  
+                  
+    }
 }); //end of jquery doc
