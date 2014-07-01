@@ -140,13 +140,16 @@ var radio_group1, radio_group2, radio_group3;
                director = JSONObject2.abridged_directors[0].name;
             }
         });
+        //here you should append shit to the container
+        /*var actor_sliders = '<div class="ui-field-contain"> <p id="label0"></p><input type="range" id="slider-mini1" value="0" min="-10" max="10" data-highlight="true" /> </a> </div> <div class="ui-field-contain"> <p id="label1"></p> <input type="range" name="slider-mini" id="slider-mini2" value="0" min="-10" max="10" data-highlight="true" /> </div> <div class="ui-field-contain"> <p id="label2"></p> <input type="range" name="slider-mini" id="slider-mini3" value="0" min="-10" max="10" data-highlight="true" /> </div> <div class="ui-field-contain"> <p id="label3"></p> <input type="range"  name="slider-mini" id="slider-mini4" value="0" min="-10" max="10" data-highlight="true" /> </div></div><!-- end of container -->';
+        $('#slider_stuff1').html(actor_sliders);*/
+        
         //print actors' names.
         for(var k=0; k<4;k++) {
             $('#label'+k).html(actors[choice][k]);
         }
         
     });
-                  
     $('#to_genre_director').click(function() {
             $('#genre0').html(genre[0]);
             $('#genre1').html(genre[1]);
