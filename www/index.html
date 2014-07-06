@@ -51,12 +51,13 @@
                     <div data-role="content">
 			 <img id="logo" src="img/RTMicon.png" alt="View Source Logo" />
                     </div>
-            
+                    
                     <div data-role="header"
                         data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
-                        <h1>rate that movie</h1>
+                        <br/>
+                        <h1>Rate That Movie</h1>
                     </div>
                     <div>
                         <label for="search-mini">enter movie title:</label>
@@ -77,6 +78,7 @@
                         data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
+                        <br/>
                         <h1>help</h1>
                         <a href="#home"
                             id="home-search"
@@ -108,6 +110,7 @@
                         data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
+                        <br/>
                         <h1>Results </h1>
                         <a href="#home"
                             id ="home-search"
@@ -131,16 +134,16 @@
                     
                     <ul data-role="listview" data-inset="true" id="my-listview">
                         
-                        <li id="movie0">
-                            <a href="#important" id="movie0Link" data-transition="slide">
+                        <li class="result" id="movie0Link">
+                            <a href="#important" data-transition="slide">
                             <img id="pic0"></img>
                             <h3 id="title0"></h3>
                             <p id="year0"></p>
                             </a>
                         </li>
                         
-                        <li id="movie1">
-                            <a href="#important" id="movie1Link" data-transition="slide">
+                        <li class="result" id="movie1Link">
+                            <a href="#important" data-transition="slide">
                             <img id="pic1"></img>
                             <h3 id="title1"></h3>
                             <p id="year1"></p>
@@ -148,8 +151,8 @@
                         </li>
                         
                         
-                        <li id="movie2">
-                            <a href="#important" id="movie2Link" data-transition="slide">
+                        <li class="result" id="movie2Link">
+                            <a href="#important" data-transition="slide">
                             <img id="pic2"></img>
                             <h3 id="title2"></h3>
                             <p id="year2"></p>
@@ -157,16 +160,16 @@
                         </li>
                         
                         
-                        <li id="movie3">
-                            <a href="#important" id="movie3Link" data-transition="slide">
+                        <li class="result" id="movie3Link">
+                            <a href="#important"  data-transition="slide">
                             <img id="pic3"></img>
                             <h3 id="title3"></h3>
                             <p id="year3"></p>
                              </a> 
                         </li>
                         
-                        <li id="movie4">
-                            <a href="#important" id="movie4Link" data-transition="slide">
+                        <li class="result" id="movie4Link">
+                            <a href="#important"  data-transition="slide">
                                 <img id="pic4"></img>
                                 <h3 id="title4"></h3>
                                 <p id="year4"></p>
@@ -219,8 +222,7 @@
                                  data-transition="slide"
                                  data-direction="reverse"
                                  >Home</a>
-                             <a href="#actor0"
-                                 data-icon="right-arrow"
+                             <a  data-icon="right-arrow"
                                  data-iconpos="notext"
                                  data-transition="slide"
                                  data-direction="forward"
@@ -228,9 +230,9 @@
                                  >next</a>
                     </div>
                     <div>
-                        <p>
-                            rank what is most important in a </p><br><p>movie for you
-                        </p>
+                        <h5>
+                            rank what is most important in a movie for you
+                        </h5>
                     </div>
 			<style>
                         
@@ -287,7 +289,7 @@
                         data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
-                <h1>...</h1>
+                <h1>Rate These Actors!</h1>
                 <a href="#home"
                             id ="screen_one"
                             data-icon="home"
@@ -303,34 +305,31 @@
                             data-direction="forward"
 			>next</a>
                 </div> <!--end of header-->
-                <h3>demo rating page</h3>
+                <h3>Rate these Actors</h3>
                 
 		<div data-role="contain" id="slider_stuff1">
 		 <div data-role="fieldcontain">
 		    <p id="label0"></p>
 		    <input type="range"
-			   id="slider-mini1" value="0" min="-10" max="10"
+			   id="actor_slider1" value="0" min="-10" max="10"
 			   data-highlight="true" />
 		</div>
-                
 		<div data-role="fieldcontain">
                     <p id="label1"></p>
                 <input type="range" name="slider-mini"
-			   id="slider-mini2" value="0" min="-10" max="10"
+			   id="actor_slider2" value="0" min="-10" max="10"
 			   data-highlight="true" />
 		</div>
-                    
 		<div data-role="fieldcontain">
                     <p id="label2"></p>
                 <input type="range" name="slider-mini"
-			   id="slider-mini3" value="0" min="-10" max="10"
+			   id="actor_slider3" value="0" min="-10" max="10"
 			   data-highlight="true" />
 		</div>
-                    
 		<div data-role="fieldcontain">
 		<p id="label3"></p>
                 <input type="range"  name="slider-mini"
-			   id="slider-mini4" value="0" min="-10" max="10"
+			   id="actor_slider4" value="0" min="-10" max="10"
 			   data-highlight="true" />
 		</div>
 		</div><!-- end of container -->
@@ -341,6 +340,7 @@
                         data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
+                        <br/>
                         <h1>Rate This Movie!</h1>
                         <a href="#home"
                             id ="screen_one"
@@ -350,7 +350,8 @@
                             data-direction="reverse"
                             
                             >Home</a>
-                        <a href="#actor1"
+                        <a href="#score"
+			   id="score_page"
                             data-icon="right-arrow"
                             data-iconpos="notext"
                             data-transition="slide"
@@ -358,29 +359,64 @@
                             >next</a>
                     </div> <!--end of header-->
 		     <div data-role="contain">
-                    <h3>Rate This Actor!</h3>
-                    <p> Do you watch these type of movies? Rate them!</p>
+                    <h3>rate these genres!</h3>
+                    <h5>Do you watch these type of movies? Rate them!</h5>
                     <div data-role="fieldcontain">
                         <p id="genre0"></p>
                         <input type="range" name="slider-mini"
-			       id="slider-mini1" value="0" min="-10" max="10"
+			       id="genre1" value="0" min="-10" max="10"
 			       data-highlight="true" />
                     </div>
                     <div data-role="fieldcontain">                       
                         <p id="genre1"></p>
                         <input type="range" name="slider-mini"
-			       id="slider-mini2" value="0" min="-10" max="10"
+			       id="genre2" value="0" min="-10" max="10"
 			       data-highlight="true" />
                     </div>
-		    <br/>
-                    <p> Rate this director! </p>
+                    <br/>
+                    <h5> Rate this director! </h5>
                     <div data-role="fieldcontain">         
                         <p id="director"></p>
                         <input type="range" name="slider-mini"
-			       id="slider-mini3" value="0" min="-10" max="10"
+			       id="director_slider1" value="0" min="-10" max="10"
 			       data-highlight="true" />
                     </div>
 		    </div> <!-- end of container -->
         </div> <!--end of actor page -->
+         <!--Page: score -->
+         <div id="score" data-theme="a" data-role="page7" data-title="final_page">
+             <br/>
+             <div data-role="header"
+                 data-theme="a"
+                 data-position="fixed"
+                 data-id="vs_header">
+                 <h3>Based on your ratings...</h3>
+                 <a href="#home"
+                     id ="screen_one"
+                     data-icon="home"
+                     data-iconpos="notext"
+                     data-transition="slide"
+                     data-direction="reverse"
+                     >Home</a>
+                 <a href="#genre-director"
+                     id="to_genre_director"
+                     data-icon="right-arrow"
+                     data-iconpos="notext"
+                     data-transition="slide"
+                     data-direction="forward"
+                     >next</a>
+             </div> <!--end of header-->
+             <div data-role="contain">
+                 <h3>we think you should...</h3>
+                 <!-- Display words based on rating. This should all be done in movieRetrieval -->
+                 <div data-role="fieldcontain" id="see_movie">
+                     <!-- SEE this movie?? -->
+                 </div>
+                 <div id="critics_score"></div>
+                 <div id="your_score" ></div>
+                 <br/>
+                 <a data-role="button" data-icon="arrow-r" data-iconpos="left" data-transition="slide" id="#home">Search Another Movie!</a>
+             </div>
+         </div> <!-- end of score -->
 	</body>
 </html>

@@ -11,6 +11,7 @@ var movie_ids = [];
 var choice = 0;
 var title = [];
 var totalMovies;
+var RT;
 var radio_group1, radio_group2, radio_group3;
                   
     //here we get the movie title.
@@ -18,14 +19,6 @@ var radio_group1, radio_group2, radio_group3;
         movieTitle = $(this).val(); //getting movie title, one letter at a time.
     });
     //clearing the results page.
-    $('#screen-one').click(function() {
-        for(var index=0; index<5; i++) {
-            $('#pic'+index).attr("src", "");
-            $('#title'+index).html("");
-            $('#year'+index).html("");
-            actors = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]; //clearing out results for actors
-        }
-    });
     function clearVars() {
             for(var index=0; index<5; index++) {
                   $('#pic'+index).attr("src", "");
@@ -55,11 +48,12 @@ var radio_group1, radio_group2, radio_group3;
                    success: function(JSONObject) {
                    //populating results list & storing actors in a 2D array.
                    console.log("total number of movies is " +JSONObject.total);
+                   
                    if(JSONObject.total > 5) {
                         totalMovies = 5;
                    }
                    else {
-                        totalMovies = parseInt(JSONObject.total);
+                        totalMovies = Number(JSONObject.total);
                         console.log(totalMovies);
                    }
                    for(var i=0; i < totalMovies; i++) {
@@ -79,34 +73,31 @@ var radio_group1, radio_group2, radio_group3;
             });
             //at this point, disable the links for empty results
             //if there are 5 movies, & 5 movies come back then this iterates 0 times.
-            for(var k = 5; k > totalMovies; k--) {
-                   var $link = $('#movie'+(k - 1)+'Link');
-                   $link.bind('click', function(e) {
-                              e.preventDefault();
-                    });
-                   console.log($link+" was disabled");
-            }
                    console.log("done!?!?!?!?!");
                 
     });
-    //I would really like to make these click handlers more condensed. Right now,
-    //this is the best I have.
-    $('#movie0Link').click(function() {
-            choice = 0;
+    
+    //handles the different potential choices
+    $('.result').click(function() {
+        var $id = $(this).prop("id");
+        switch($id) {
+            case 'movie0Link':
+                choice = 0;
+                break;
+            case 'movie1Link':
+                choice = 1;
+                break;
+            case 'movie2Link':
+                choice = 2;
+                break;
+            case 'movie3Link':
+                choice = 3;
+                break;
+            case 'movie4Link':
+                choice = 4;
+                break;
+        }
     });
-    $('#movie1Link').click(function() {
-            choice = 1;
-    });
-    $('#movie2Link').click(function() {
-            choice = 2;
-    });
-    $('#movie3Link').click(function() {
-            choice = 3;
-    });
-    $('#movie4Link').click(function() {
-            choice = 4;
-    });
-     
     /** I need to be able to disabe the links for the movies that aren't populated by the list!
      preferrably
      1) get total as a global variable (the one in the ajax call)
@@ -133,6 +124,7 @@ var radio_group1, radio_group2, radio_group3;
             async: 'false',
             success: function(JSONObject2) {
                //this should be a lot of shit, all you need is the genre's and director
+               RT = Number(JSONObject2.ratings.critics_score);
                genre[0] = JSONObject2.genres[0];
                console.log("Do you watch "+ genre[0]);
                genre[1] = JSONObject2.genres[1];
@@ -151,10 +143,13 @@ var radio_group1, radio_group2, radio_group3;
         
     });
     $('#to_genre_director').click(function() {
-            $('#genre0').html(genre[0]);
-            $('#genre1').html(genre[1]);
-            $('#director').html(director);
-            $("input[type='range']").slider("refresh");
+        $('#genre0').html(genre[0]);
+        $('#genre1').html(genre[1]);
+        $('#director').html(director);
+            
+    });
+    $('#score_page').click(function() {
+        calculate();
     });
     //represent column and name
     var col, button;
@@ -164,32 +159,138 @@ var radio_group1, radio_group2, radio_group3;
         col = button.data("col");
         //here we check to see if a button at that column is already checked. If so, make it unchecked.
         $("input[data-col=\"" + col + "\"]").prop("checked", false);
+        
         button.prop("checked", true);
         //jQuery Mobile radiobuttons need this line to reflect changes done after clicks.
         $("input[type='radio']").checkboxradio("refresh");
         setRatings();
                                  
     });
-
-    function setRatings() {
+    
+    function setRatings( ) {
                   //here, you keep track of the values that are inputted.
-                  //if the director, actors, and genres are all picked allow movement to ratings
-                  radio_group1 = $("input[name=radio-group]:checked").val();
-                  radio_group2 = $("input[name=radio-group2]:checked").val();
-                  radio_group3 = $("input[name=radio-group3]:checked").val()
-                  if(radio_group1 != null) {
+                  radio_group1 = $("input[name=radio-group]:checked"); //actors row
+                  radio_group2 = $("input[name=radio-group2]:checked");//director row
+                  radio_group3 = $("input[name=radio-group3]:checked");//genre row
                   
-                  console.log("Actors are rated "+radio_group1);
+                  var actor_check = false;
+                  var director_check = false;
+                  var genre_check = false;
+                  //if the row for actors is checked at all
+                  if(radio_group1.prop("checked")) {
+                    actor_check = true;
                   }
-                  if(radio_group2 != null) {
-                  
-                  console.log("Director is rated "+radio_group2);
+                  else {
+                    actor_check = false;
                   }
-                  if(radio_group3 != null) {
-                  
-                  console.log("Genres are rated "+radio_group3);
+                
+                  if(radio_group2.prop("checked")) {
+                    director_check = true;
+                  }
+                  else {
+                    director_check = false;
                   }
                   
+                  if(radio_group3.prop("checked")) {
+                    genre_check = true;
+                  }
+                  else {
+                    genre_check = false;
+                  }
+                               
+                  if(actor_check && director_check && genre_check) {
+                    $('#hacktor').prop("href", "#actor0");
+                        console.log("actors are "+radio_group1.val());
+                        console.log("director is " +radio_group2.val());
+                        console.log("genres are "+ radio_group3.val());
+                        console.log("all the shits true, y0");
+                  }
+                  else {
+                    $('#hacktor').prop("href", "#important");
+                    console.log("something's wrong...");
+                  }
+    }
                   
+    function calculate() {
+           //this should calculate the scores
+           //you already have access to the choices because globals
+           /*
+            actor score is average of the actors scores. divided by 10
+            genres is genre average divided by 10
+            director is the directors rating
+            [ ((x1 * 2x2)+x3) / 10] + RT = your score.
+            try adding the radio_group's score into an array of 3, and then sorting it
+            **check .sort** and then pulling out 1 2 or 3. Add priorities. 
+            */
+           var act_score1 = Number($('#actor_slider1').val());
+           var act_score2 = Number($('#actor_slider2').val())
+           var act_score3 = Number($('#actor_slider3').val())
+           var act_score4 = Number($('#actor_slider4').val())
+           var act_average = (act_score1/10 + act_score2/10 + act_score3/10 + act_score4/10)/(4);
+           console.log("actor average is " + act_average);
+           var genre1 = Number($('#genre1').val());
+           var genre2 = Number($('#genre2').val());
+           var genre_average = (genre1/10 + genre2/10)/2;
+           console.log("genre average is " + genre_average);
+           console.log("critics score is " + RT);
+           var director = Number($('#director_slider1').val())/10
+           console.log("director is "+ director);
+            var x1;
+            var x2;
+            var x3;
+            var result;
+            //1,2,3 or 1,3,2     
+            if(radio_group1.val() === "1") {
+                //you know that actors are one, so assign the x1
+                x1 = act_average;
+                    
+                if(radio_group2.val() === "2") {
+                    //then you know radio_group is 3
+                    x2 = director;
+                    x3 = genre_average;
+                    
+                    
+                }
+                if (radio_group3.val() === "2") {
+                    x2 = genre_average;
+                    x3 = director;
+                }
+            }
+            //2,1,3 or 2,3,1
+            else if(radio_group2.val() === "1"){
+                x1 = director;
+                if (radio_group1.val() === "2") {
+                    x2=act_average;
+                    x3=genre_average;
+                }
+                if (radio_group3.val()==="2") {
+                    x2=genre_average;
+                    x3=act_average;
+                }
+            }
+            //3,1,2 or 3,2,1
+            else //if (radio_group3.val() ==="1") {
+            {
+                x1 = genre_average;
+                if (radio_group1.val() ==="2") {
+                    x2=act_average;
+                    x3=director;
+                }
+                if (radio_group2.val() === "2") {
+                    x2 = director;
+                    x3 = act_average;
+                }
+            }
+            //here, you got all yo variables asssigned.
+            result = ((x1 * (2*x2) + x3)/10) + RT;
+            console.log("your score is... " + result);
+            if (result < 60) {
+                $("#see_movie").html("<p>NOT see this movie</p>");
+            }
+            else {
+                $("#see_movie").html("<p>see this movie</p>");
+            }
+            $('#critics_score').html("<div>Critics score: " + RT+"</div");
+            $('#your_score').html("<div>Your score: "+result+"</div>");
     }
 }); //end of jquery doc
