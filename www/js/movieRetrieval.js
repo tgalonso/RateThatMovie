@@ -25,8 +25,7 @@ var radio_group1, radio_group2, radio_group3;
                   $('#title'+index).html("");
                   $('#year'+index).html("");
                   //actors = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]; //clearing out results for actors
-                  choice = 0;
-                  
+                  choice = 0;                
             }
     }
     //performs ajax call and displays info on results page.
@@ -135,8 +134,8 @@ var radio_group1, radio_group2, radio_group3;
         
     });
     $('#to_genre_director').click(function() {
-        $('#genre0').html(genre[0]);
-        $('#genre1').html(genre[1]);
+        $('#genre_title0').html(genre[0]);
+        $('#genre_title1').html(genre[1]);
         $('#director').html(director);
             
     });
@@ -277,10 +276,10 @@ var radio_group1, radio_group2, radio_group3;
         result = ((x1 * (2*x2) + x3)/10) + RT;
         console.log("your score is... " + result);
         if (result < 60) {
-            $("#see_movie").html("<p>NOT see this movie</p>");
+            $("#see_movie").html("<style>#color_text{color:red;}</style><p id=\"color_text\">NOT see this movie</p>");
         }
         else {
-            $("#see_movie").html("<p>see this movie</p>");
+            $("#see_movie").html("<style>#color_text{color:green;}</style><p id=\"color_text\">see this movie</p>");
         }
         $('#critics_score').html("<div>Critics score: " + RT+"</div");
         $('#your_score').html("<div>Your score: "+result+"</div>");

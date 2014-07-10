@@ -20,77 +20,87 @@
 <html>
 <head>
 	<title>Rate That Movie!</title>
-        <link rel="stylesheet" href="_/css/mystyles.css" />
-    
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=default-width, height=default-height, target-densitydpi=device-dpi" />    
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="_/css/mystyles.css" /> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=default-width, height=default-height, target-densitydpi=device-dpi" />    
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 	<link rel="apple-touch-icon" href="images/appicon.png" type="" />
-        <link rel="apple-touch-startup-image" href="images/splash.png" />
-        <link rel="stylesheet" href="css/structure.css" />
-        <link rel="stylesheet" href="css/index.css" />
-        <link rel="stylesheet" href="css/moviewatch.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	 <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.js"></script>
-        <script type="text/javascript" src="cordova-2.5.0.js"></script>
-         <script type="text/javascript" src="js/movieRetrieval.js"></script>
-
-
-        
+	<link rel="apple-touch-startup-image" href="images/splash.png" />
+	<link rel="stylesheet" href="css/structure.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/moviewatch.css" />
 	
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.js"></script>
+	<script type="text/javascript" src="cordova-2.5.0.js"></script>
+	<script type="text/javascript" src="js/movieRetrieval.js"></script>
             
 </head>
         
- <body>
-<div data-role="page" id="home">
+<body>
+<div data-role="page" id="home" data-theme="a">
 
 	<div data-role="header"
-		data-theme="a"
                 data-position="fixed"
                 data-id="vs_header">
 		<br/>
 		<h1>Rate That Movie</h1>
 	</div><!-- /header -->
 
-	<div data-role="content">	
+	<div data-role="content">
+		<!-- pic below -->
 		<div data-role="content">
-			 <img id="logo" src="img/RTMicon.png" alt="View Source Logo" />
+			<img id="logo" src="img/RTMicon.png" alt="View Source Logo" />
                 </div>
-                    
-                <div data-role="header"
-                        data-theme="a"
-                        data-position="fixed"
-                        data-id="vs_header">
-			<br/>
-			<h1>Rate That Movie</h1>
-                </div>
-                <div data-role="content">
-		    <div>
-                        <label for="search-mini">enter movie title:</label>
-                        <input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
-                    </div>
+                              
+		<div data-role="content">
+			<div>
+			<label for="search-mini">enter movie title:</label>
+			<input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+			</div>
  
-                    <div data-role="controlgroup">
-                        <a data-role="button" data-icon="arrow-r" data-iconpos="left" data-transition="slide" id="go">search</a>
-                    </div>
+			<div data-role="controlgroup">
+			<a data-role="button" data-icon="arrow-r" data-iconpos="left" data-transition="slide" id="go">search</a>
+			</div>
 		    
-                    <div data-role="controlgroup">
-                        <a href="#results" data-role="button" data-icon="arrow-r" data-iconpos="left" data-transition="slide">help</a>
-                    </div><!-- links -->
+			<div data-role="controlgroup">
+			<a href="#help" data-role="button" data-icon="arrow-r" data-iconpos="left" data-transition="slide">help</a>
+			</div><!-- links -->
 		</div>
+	</div><!-- /content -->
+</div><!-- /page -->
+
+<!-- Start of help page -->
+<div data-role="page" id="help" data-theme="a">
+
+	<div data-role="header"
+                data-position="fixed"
+                data-id="vs_header">
+                <br/>
+                <h1>Help </h1>
+                <a href="#home"
+                        id ="home-search"
+			data-icon="home"
+                        data-iconpos="notext"
+                        data-transition="slide"
+                        data-direction="reverse"
+                        >Home</a>        
+                </div> <!--end of header-->
+
+	<div data-role="content">	
+		<div data-role="contain">Help page. Hey nick, can you re-write this part? I erased the help page by accident.</div>
+		<br/>	
 	</div><!-- /content -->
 
 </div><!-- /page -->
 
-
 <!-- Start of second page -->
-<div data-role="page" id="results">
+<div data-role="page" id="results" data-theme="a">
 
 	<div data-role="header"
-                data-theme="a"
                 data-position="fixed"
                 data-id="vs_header">
                 <br/>
@@ -162,26 +172,59 @@
                         </li>
                     </ul>
                     </div>
-		    </div> <!-- end of content -->
+		    </div> <!-- end of container -->
 	</div><!-- /content -->
 </div><!-- /page -->
 
-<!-- Start of third page -->
-<div data-role="page" id="important">
+<!-- Start of wrong way page -->
+<div data-role="page" id="wrong-way" data-theme="a">
 
-	<div data-role="header">
-		<h1>Bar</h1>
-	</div><!-- /header -->
+	<div data-role="header"
+                data-position="fixed"
+                data-id="vs_header">
+                <br/>
+                <h1>Ooops! </h1>
+                <a href="#home"
+                        id ="home-search"
+			data-icon="home"
+                        data-iconpos="notext"
+                        data-transition="slide"
+                        data-direction="reverse"
+                        >Home</a>        
+                </div> <!--end of header-->
+
+	<div data-role="content">	
+		You seem to have not entered anything. Try entering a movie title in the search bar to rate that movie!	
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+<!-- Start of third page -->
+<div data-role="page" id="important" data-theme="a">
+
+	<div data-role="header"
+                data-position="fixed"
+                data-id="vs_header">
+                <br/>
+                <h1>Results </h1>
+                <a href="#home"
+                        id ="home-search"
+			data-icon="home"
+                        data-iconpos="notext"
+                        data-transition="slide"
+                        data-direction="reverse"
+                        >Home</a>        
+                </div> <!-- /header -->
 
 	<div data-role="content">	
 		
 		<style>
                     
-                    #results #list-container {
+            /*      #results #list-container {
                         padding-top:5px;
                         padding-left:5px;
                         padding-right:5px;
-                    }
+                    }*/
                     
                     </style>
 		    <div data-role="content">
@@ -224,8 +267,8 @@
                         </li>
                         
                         <li class="result" id="movie4Link">
-                            <a href="#important"  data-transition="slide">
-                                <img id="pic4"></img>
+				<a href="#important"  data-transition="slide">
+				<img id="pic4"></img>
                                 <h3 id="title4"></h3>
                                 <p id="year4"></p>
                             </a>
@@ -235,16 +278,12 @@
 		    </div> <!-- end of content -->
 	</div><!-- /content -->
 
-	<div data-role="footer">
-		<h4>Page Footer</h4>
-	</div><!-- /footer -->
 </div><!-- /page -->
 
 <!-- Start of fourth page -->
-<div data-role="page" id="important">
+<div data-role="page" id="important" data-theme="a">
 
 	<div data-role="header"
-                             data-theme="a"
                              data-position="fixed"
                              data-id="vs_header">
                         <h1>importance</h1>
@@ -289,9 +328,9 @@
                                 
                                 <input type="radio" name="radio-group" id="radio-choice-3" data-col="3" value="3"  />
                                 <label for="radio-choice-3">3</label><br/>
-                             </fieldset>
+                        </fieldset>
                                 <p>Director</p>
-                            <fieldset data-role="controlgroup" data-type="horizontal">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
                                 <input type="radio" name="radio-group2" id="radio-choice-4" data-col="1" value="1" />
                                 <label for="radio-choice-4">1</label>
                                 
@@ -300,10 +339,10 @@
                                 
                                 <input type="radio" name="radio-group2" id="radio-choice-6" data-col="3" value="3"  />
                                 <label for="radio-choice-6">3</label><br/>
-                            </fieldset>
+                        </fieldset>
                                 
-                            <p>Genre</p>
-                            <fieldset data-role="controlgroup" data-type="horizontal">
+                        <p>Genre</p>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
                                 <input type="radio" name="radio-group3" id="radio-choice-7" data-col="1" value="1" />
                                 <label for="radio-choice-7">1</label>
                                 
@@ -318,10 +357,9 @@
 </div><!-- /page -->
 
 <!-- Start of fifth page -->
-<div data-role="page" id="actor0">
+<div data-role="page" id="actor0" data-theme="a">
 
 	<div data-role="header"
-                        data-theme="a"
                         data-position="fixed"
                         data-id="vs_header">
                 <h1>Rate These Actors!</h1>
@@ -342,43 +380,42 @@
         </div> <!-- /header-->
 	
         <div data-role="content" id="slider_stuff1">        
-	<h3>Rate these Actors</h3>		
-		 <div data-role="fieldcontain">
-		    <p id="label0"></p>
-		    <input type="range"
-			   id="actor_slider1" value="0" min="-10" max="10"
-			   data-highlight="true" />
+		<h3>Rate these Actors</h3>		
+		<div data-role="fieldcontain">
+			<p id="label0"></p>
+			<input type="range"
+			id="actor_slider1" value="0" min="-10" max="10"
+			data-highlight="true" />
 		</div>
 		<div data-role="fieldcontain">
-                    <p id="label1"></p>
-                <input type="range" name="slider-mini"
-			   id="actor_slider2" value="0" min="-10" max="10"
-			   data-highlight="true" />
+			<p id="label1"></p>
+			<input type="range" name="slider-mini"
+			id="actor_slider2" value="0" min="-10" max="10"
+			data-highlight="true" />
 		</div>
 		<div data-role="fieldcontain">
-                    <p id="label2"></p>
-                <input type="range" name="slider-mini"
-			   id="actor_slider3" value="0" min="-10" max="10"
-			   data-highlight="true" />
+			<p id="label2"></p>
+			<input type="range" name="slider-mini"
+			id="actor_slider3" value="0" min="-10" max="10"
+			data-highlight="true" />
 		</div>
 		<div data-role="fieldcontain">
-		<p id="label3"></p>
-                <input type="range"  name="slider-mini"
-			   id="actor_slider4" value="0" min="-10" max="10"
-			   data-highlight="true" />
+			<p id="label3"></p>
+			<input type="range"  name="slider-mini"
+			id="actor_slider4" value="0" min="-10" max="10"
+			data-highlight="true" />
 		</div>
-		</div><!-- end of content -->
+	</div><!-- end of content -->
 </div><!-- /page -->
 
 <!-- Start of sixth page -->
-<div data-role="page" id="genre-director">
+<div data-role="page" id="genre-director" data-theme="a">
 
 	<div data-role="header"
-                data-theme="a"
                 data-position="fixed"
                 data-id="vs_header">
                 <br/>
-                <h1>Rate This Movie!</h1>
+                <h1>Genre & Director</h1>
                 <a href="#home"
                         id ="screen_one"
                         data-icon="home"
@@ -396,22 +433,23 @@
                 </div> <!--end of header-->
 		     
 		<div data-role="content">
-                    <h3>rate these genres!</h3>
-                    <h5>Do you watch these type of movies? Rate them!</h5>
+                    <h1>rate these genres!</h3>
+                    <h3>Do you watch these type of movies? Rate them!</h3>
                     <div data-role="fieldcontain">
-                        <p id="genre0"></p>
+                        <p id="genre_title0"></p>
                         <input type="range" name="slider-mini"
 			       id="genre1" value="0" min="-10" max="10"
 			       data-highlight="true" />
                     </div>
+                    
                     <div data-role="fieldcontain">                       
-                        <p id="genre1"></p>
+                        <p id="genre_title1"></p>
                         <input type="range" name="slider-mini"
 			       id="genre2" value="0" min="-10" max="10"
 			       data-highlight="true" />
                     </div>
-                    <br/>
-                    <h5> Rate this director! </h5>
+                    
+                    <h3> Rate this director! </h3>
                     <div data-role="fieldcontain">         
                         <p id="director"></p>
                         <input type="range" name="slider-mini"
@@ -423,10 +461,9 @@
 
 
 <!-- Start of seventh page -->
-<div data-role="page" id="score">
+<div data-role="page" id="score" data-theme="a">
 
-	<div data-role="header"
-                 data-theme="a"
+	<div data-role="header"        
                  data-position="fixed"
                  data-id="vs_header">
                  <h3>Based on your ratings...</h3>
